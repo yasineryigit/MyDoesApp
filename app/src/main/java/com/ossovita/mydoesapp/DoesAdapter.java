@@ -1,6 +1,7 @@
 package com.ossovita.mydoesapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,24 @@ public class DoesAdapter extends RecyclerView.Adapter<DoesAdapter.MyViewHolder> 
         holder.titleDoes.setText(myDoes.get(position).getTitledoes());
         holder.descDoes.setText(myDoes.get(position).getDescdoes());
         holder.dateDoes.setText(myDoes.get(position).getDatedoes());
+
+        String getTitleDoes = myDoes.get(position).getTitledoes();
+        String getDescDoes = myDoes.get(position).getDescdoes();
+        String getDateDoes = myDoes.get(position).getDatedoes();
+        String getKeyDoes = myDoes.get(position).getKeydoes();
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(context,EditTaskDesk.class)
+                .putExtra("titledoes",getTitleDoes)
+                .putExtra("descdoes",getDescDoes)
+                .putExtra("datedoes",getDateDoes)
+                .putExtra("keydoes",getKeyDoes)
+                );
+            }
+        });
+
     }
 
     @Override
@@ -42,7 +61,7 @@ public class DoesAdapter extends RecyclerView.Adapter<DoesAdapter.MyViewHolder> 
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView titleDoes,descDoes,dateDoes;
+        TextView titleDoes,descDoes,dateDoes,keydoes;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             titleDoes = itemView.findViewById(R.id.titledoes);

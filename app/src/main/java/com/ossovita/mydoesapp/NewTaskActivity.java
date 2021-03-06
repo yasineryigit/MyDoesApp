@@ -26,6 +26,7 @@ public class NewTaskActivity extends AppCompatActivity {
     Button btnSaveTask, btnCancel;
     DatabaseReference reference;
     Integer doesNum = new Random().nextInt();
+    String keyDoes = Integer.toString(doesNum);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +44,10 @@ public class NewTaskActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                        snapshot.getRef().child("titleDoes").setValue(titledoes.getText().toString());
-                        snapshot.getRef().child("descDoes").setValue(descdoes.getText().toString());
-                        snapshot.getRef().child("dateDoes").setValue(datedoes.getText().toString());
-
+                        snapshot.getRef().child("titledoes").setValue(titledoes.getText().toString());
+                        snapshot.getRef().child("descdoes").setValue(descdoes.getText().toString());
+                        snapshot.getRef().child("datedoes").setValue(datedoes.getText().toString());
+                        snapshot.getRef().child("keydoes").setValue(keyDoes.toString());
                         startActivity(new Intent(NewTaskActivity.this,MainActivity.class));
                     }
 
@@ -68,6 +69,9 @@ public class NewTaskActivity extends AppCompatActivity {
     }
 
     private void makeStyles() {
+
+        btnSaveTask = findViewById(R.id.btnSaveTask);
+        btnCancel = findViewById(R.id.btnCancel);
         titlepage = findViewById(R.id.titlepage);
         addtitle = findViewById(R.id.addTitle);
         titledoes = findViewById(R.id.titleDoes);

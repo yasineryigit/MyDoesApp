@@ -22,7 +22,7 @@
             android:textColor="#FFF"
             android:textAlignment="center"
             android:layout_marginBottom="28dp"
-            android:text="Create New Task"
+            android:text="Edit Task Details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -137,11 +137,11 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnSaveTask"
+        android:id="@+id/btnSaveUpdate"
         android:background="@drawable/bgbtncreate"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
-        android:text="Create Now"
+        android:text="Save Update"
         android:textColor="#FFF"
         android:textAllCaps="false"
         android:textSize="22sp"
@@ -151,12 +151,12 @@
         />
 
     <Button
-        android:id="@+id/btnCancel"
+        android:id="@+id/btnDelete"
         android:background="@drawable/bgbtncancel"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="5dp"
-        android:text="Cancel"
+        android:text="Delete"
         android:textColor="#AFAFAF"
         android:textAllCaps="false"
         android:textSize="22sp"

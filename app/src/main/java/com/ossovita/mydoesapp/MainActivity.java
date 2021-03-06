@@ -42,9 +42,25 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(doesAdapter);
 
 
+        btnAddNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,NewTaskActivity.class));
+            }
+        });
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshData();
+    }
+
+    private void refreshData() {
 
         //DoesApp adındaki database'e referans verdik ve üzerindeki değişiklikleri takip ediyoruz
-        reference = FirebaseDatabase.getInstance().getReference().child("DoesApp");
+        reference = FirebaseDatabase.getInstance().getReference().child("BoxDoese");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -63,15 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-        btnAddNew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,NewTaskActivity.class));
-            }
-        });
-
     }
 
     private void makeStyles() {
