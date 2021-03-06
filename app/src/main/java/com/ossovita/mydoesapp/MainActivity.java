@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +24,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     TextView titlePage, subtitlePage,endPage;
+    Button btnAddNew;
     DatabaseReference reference;
     ArrayList<MyDoes> list;
     RecyclerView recyclerView;
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         makeStyles();
+
         list = new ArrayList<>();
         recyclerView = findViewById(R.id.ourdoes);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -60,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        btnAddNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,NewTaskActivity.class));
+            }
+        });
+
     }
 
     private void makeStyles() {
@@ -67,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         titlePage = findViewById(R.id.titlepage);
         subtitlePage = findViewById(R.id.subtitlepage);
         endPage = findViewById(R.id.endpage);
+        btnAddNew = findViewById(R.id.btnAddNew);
 
         //fonts
         Typeface MLight = Typeface.createFromAsset(getAssets(),"fonts/ML.otf");
@@ -75,5 +88,6 @@ public class MainActivity extends AppCompatActivity {
         titlePage.setTypeface(MMedium);
         subtitlePage.setTypeface(MLight);
         endPage.setTypeface(MLight);
+        btnAddNew.setTypeface(MLight);
     }
 }
