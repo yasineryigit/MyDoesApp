@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "388051816823",
+    "project_id": "mydoesapp-7d8bb",
+    "storage_bucket": "mydoesapp-7d8bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388051816823:android:ce0481e49ed885d1321172",
+        "android_client_info": {
+          "package_name": "com.ossovita.mydoesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388051816823-a91kdof27l012rjeegjfht54nj9jc0tf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXhAT-NXDMVMTUwtJmtjvGxvzmI4HlwV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388051816823-a91kdof27l012rjeegjfht54nj9jc0tf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
